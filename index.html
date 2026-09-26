@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarePlus AI - Smart Hospital & Appointment Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">🏥 CarePlus AI</div>
+      <nav>
+        <a href="#doctors">Doctors</a>
+        <a href="#packages">Health Packages</a>
+        <a href="#booking">Book Appointment</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <h1>Smart Healthcare & Doctor Booking</h1>
+    <p>Find specialized doctors, view OPD schedules, book appointments online, and ask our AI Assistant for guidance.</p>
+    <div class="hero-btns">
+      <a href="#doctors" class="btn btn-primary">Find a Doctor</a>
+      <button class="btn btn-secondary" onclick="toggleChat()">Ask CareBot AI</button>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="container">
+
+    <!-- Doctor Search & Filter Header -->
+    <h2 id="doctors" style="margin-bottom: 1rem;">Available Doctors & Specialists</h2>
+    
+    <div class="filter-card">
+      <input type="text" id="searchInput" class="search-input" placeholder="Search doctor by name or specialty...">
+      <select id="departmentFilter" class="select-input">
+        <option value="all">All Departments</option>
+        <option value="Cardiology">Cardiology</option>
+        <option value="Pediatrics">Pediatrics</option>
+        <option value="Orthopedics">Orthopedics</option>
+        <option value="Dermatology">Dermatology</option>
+        <option value="Neurology">Neurology</option>
+      </select>
+    </div>
+
+    <!-- Doctor Cards Grid -->
+    <div class="grid" id="doctorsGrid">
+      <!-- Dynamically filled by JavaScript -->
+    </div>
+
+    <!-- Health Packages Section -->
+    <h2 id="packages" style="margin-bottom: 1rem;">Preventive Health Packages</h2>
+    <div class="grid" id="packagesGrid">
+      <!-- Dynamically filled by JavaScript -->
+    </div>
+
+    <!-- Appointment Summary & Booking Form Section -->
+    <h2 id="booking" style="margin-bottom: 1rem;">Confirm Appointment</h2>
+    <div class="booking-section">
+      <div class="booking-box">
+        <h3>Selected Doctor Details</h3>
+        <div id="selectedDoctorCard" style="margin-top: 1rem; color: var(--text-muted);">
+          Please select a doctor from the list above to proceed.
+        </div>
+      </div>
+
+      <div class="booking-box">
+        <h3>Patient Registration</h3>
+        <form id="bookingForm" style="margin-top: 1rem;" onsubmit="handleBooking(event)">
+          <div class="form-group">
+            <label>Patient Name</label>
+            <input type="text" class="form-control" id="patientName" required placeholder="Enter full name">
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" class="form-control" id="appointmentDate" required>
+          </div>
+          <div class="form-group">
+            <label>Promo Code</label>
+            <input type="text" class="form-control" id="promoCode" placeholder="Enter promo code (e.g. STUDENT10)">
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Confirm & Book</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AI Chatbot Floating Widget -->
+  <div class="chat-widget">
+    <button class="chat-toggle" onclick="toggleChat()">🤖 Ask CareBot</button>
+    <div class="chat-box" id="chatBox">
+      <div class="chat-header">
+        <span>CareBot Triage Assistant</span>
+        <button onclick="toggleChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2rem;">✖</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg msg-bot">
+          Hello! I am CareBot, your AI Receptionist. You can ask me about OPD timings, doctor availability, or medical departments!
+        </div>
+      </div>
+      <div class="disclaimer">⚠️ CareBot gives educational info only. In an emergency, call +91-9876543210 immediately.</div>
+      <div class="chat-input-area">
+        <input type="text" id="userInput" class="chat-input" placeholder="Type your query..." onkeypress="handleKeyPress(event)">
+        <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Data and Main Script -->
+  <script src="hospitalData.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
