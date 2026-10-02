@@ -1,14 +1,13 @@
 :root {
-  --primary: #0284c7;
-  --primary-dark: #0369a1;
-  --secondary: #0f172a;
-  --bg-light: #f8fafc;
-  --card-bg: #ffffff;
-  --text-dark: #334155;
-  --text-muted: #64748b;
-  --border: #e2e8f0;
-  --success: #16a34a;
+  --primary: #2e7d32;         /* Deep emerald green for primary buttons & titles */
+  --primary-hover: #1b5e20;   /* Darker green for button hover state */
+  --bg-light: #f1f8e9;        /* Light mint tint for backgrounds */
+  --accent: #e8f5e9;          /* Light green accent */
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --border: #c8e6c9;          /* Subtle green border tint */
 }
+
 
 * {
   box-sizing: border-box;
